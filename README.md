@@ -14,4 +14,4 @@ Para rodá-lo com entradas específicas, digite:
 ```
 $ ./<nome_do_output> 500 10
 ```
-Onde o primeiro argumento (`500`) é a quantia de números a serem percorridos, e o segunto argumento (`10`) a quantia de threads que fará a busca.
+Onde o primeiro argumento (`500`) é a quantia de números a serem percorridos, e o segundo argumento (`10`) a quantia de threads que fará a busca. 
