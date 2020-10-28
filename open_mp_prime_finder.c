@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     number_range = 1000000;
     number_of_threads = 5;
   }
-  printf("\nSearching numbers from 0 to \033[1;36m%d\033[0m using \033[1;32m%d\033[0m threads\n", number_range, number_of_threads);
+  printf("\nSearching numbers from \033[1;36m0\033[0m to \033[1;36m%d\033[0m using \033[1;32m%d\033[0m threads\n", number_range, number_of_threads);
   int chunk_size = number_range / number_of_threads;
 
   gettimeofday(&start_time, NULL);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 
     }
     printf(
-      "Thread nº\033[1;32m%d\033[0m finished search between \033[1;36m[\033[0m%d\033[1;36m,\033[0m %d\033[1;36m]\033[0m\n",
+      "Thread nº\033[1;32m%d\033[0m finished searching interval \033[1;36m[\033[0m%d\033[1;36m,\033[0m %d\033[1;36m]\033[0m\n",
       omp_get_thread_num(),
       start_limit,
       end_limit
@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
   double seconds_spent = end_time.tv_sec - start_time.tv_sec;
   double milliseconds_spent =  (end_time.tv_usec - start_time.tv_usec)/1000000.0;
   double time_spent = seconds_spent + milliseconds_spent;
-  printf("Time spent searching for primes: %f\n", time_spent);
+  printf("%d primes found\n", prime_count);
+  printf("Time spent searching: %f\n", time_spent);
   return 0;
 }
